@@ -94,6 +94,9 @@
         scroll-behavior: smooth;
     }
 }
+.text-right {
+    text-align: right;
+}
 
 body {
     margin: 0;

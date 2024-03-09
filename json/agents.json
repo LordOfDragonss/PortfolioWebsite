@@ -3,117 +3,140 @@
     {
       "name": "Brimstone",
       "nr": 1,
-      "icon_src": "assets/agents/Brimstone_icon.png"
+      "icon_src": "assets/agents/Brimstone_icon.png",
+      "role": "Controller"
     },
     {
       "name": "Phoenix",
       "nr": 2,
-      "icon_src": "assets/agents/Phoenix_icon.png"
+      "icon_src": "assets/agents/Phoenix_icon.png",
+      "role": "Duelist"
     },
     {
       "name": "Sage",
       "nr": 3,
-      "icon_src": "assets/agents/Sage_icon.png"
+      "icon_src": "assets/agents/Sage_icon.png",
+      "role": "Sentinel"
     },
     {
       "name": "Sova",
       "nr": 4,
-      "icon_src": "assets/agents/Sova_icon.png"
+      "icon_src": "assets/agents/Sova_icon.png",
+      "role": "Initiator"
     },
     {
       "name": "Viper",
       "nr": 5,
-      "icon_src": "assets/agents/Viper_icon.png"
+      "icon_src": "assets/agents/Viper_icon.png",
+      "role": "Controller"
     },
     {
       "name": "Cypher",
       "nr": 6,
-      "icon_src": "assets/agents/Cypher_icon.png"
+      "icon_src": "assets/agents/Cypher_icon.png",
+      "role": "Sentinel"
     },
     {
       "name": "Reyna",
       "nr": 7,
-      "icon_src": "assets/agents/Reyna_icon.png"
+      "icon_src": "assets/agents/Reyna_icon.png",
+      "role": "Duelist"
     },
     {
       "name": "Killjoy",
       "nr": 8,
-      "icon_src": "assets/agents/Killjoy_icon.png"
+      "icon_src": "assets/agents/Killjoy_icon.png",
+      "role": "Sentinel"
     },
     {
       "name": "Breach",
       "nr": 9,
-      "icon_src": "assets/agents/Breach_icon.png"
+      "icon_src": "assets/agents/Breach_icon.png",
+      "role": "Initiator"
     },
     {
       "name": "Omen",
       "nr": 10,
-      "icon_src": "assets/agents/Omen_icon.png"
+      "icon_src": "assets/agents/Omen_icon.png",
+      "role": "Controller"
     },
     {
       "name": "Jett",
       "nr": 11,
-      "icon_src": "assets/agents/Jett_icon.png"
+      "icon_src": "assets/agents/Jett_icon.png",
+      "role": "Duelist"
     },
     {
       "name": "Raze",
       "nr": 12,
-      "icon_src": "assets/agents/Raze_icon.png"
+      "icon_src": "assets/agents/Raze_icon.png",
+      "role": "Duelist"
     },
     {
       "name": "Skye",
       "nr": 13,
-      "icon_src": "assets/agents/Skye_icon.png"
+      "icon_src": "assets/agents/Skye_icon.png",
+      "role": "Initiator"
     },
     {
       "name": "Yoru",
       "nr": 14,
-      "icon_src": "assets/agents/Yoru_icon.png"
+      "icon_src": "assets/agents/Yoru_icon.png",
+      "role": "Duelist"
     },
     {
       "name": "Astra",
       "nr": 15,
-      "icon_src": "assets/agents/Astra_icon.png"
+      "icon_src": "assets/agents/Astra_icon.png",
+      "role": "Controller"
     },
     {
       "name": "KAY/O",
       "nr": 16,
-      "icon_src": "assets/agents/KAYO_icon.png"
+      "icon_src": "assets/agents/KAYO_icon.png",
+      "role": "Initiator"
     },
     {
       "name": "Chamber",
       "nr": 17,
-      "icon_src": "assets/agents/Chamber_icon.png"
+      "icon_src": "assets/agents/Chamber_icon.png",
+      "role": "Sentinel"
     },
     {
       "name": "Neon",
       "nr": 18,
-      "icon_src": "assets/agents/Neon_icon.png"
+      "icon_src": "assets/agents/Neon_icon.png",
+      "role": "Duelist"
     },
     {
       "name": "Fade",
       "nr": 19,
-      "icon_src": "assets/agents/Fade_icon.png"
+      "icon_src": "assets/agents/Fade_icon.png",
+      "role": "Initiator"
     },
     {
       "name": "Harbor",
       "nr": 20,
-      "icon_src": "assets/agents/Harbor_icon.png"
+      "icon_src": "assets/agents/Harbor_icon.png",
+      "role": "Controller"
     },
     {
       "name": "Gekko",
       "nr": 21,
-      "icon_src": "assets/agents/Gekko_icon.png"
+      "icon_src": "assets/agents/Gekko_icon.png",
+      "role": "Initiator"
     },
     {
       "name": "Deadlock",
       "nr": 22,
-      "icon_src": "assets/agents/Deadlock_icon.png"
+      "icon_src": "assets/agents/Deadlock_icon.png",
+      "role": "Sentinel"
     },
     {
       "name": "Iso",
       "nr": 23,
-      "icon_src": "assets/agents/Iso_icon.png"
+      "icon_src": "assets/agents/Iso_icon.png",
+      "role": "Duelist"
     }
   ]
 }

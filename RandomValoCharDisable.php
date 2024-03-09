@@ -46,6 +46,89 @@ if(isset($_GET['generate'])){
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script>
+        function setAgentsDisabled() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = true;
+            });
+        }
+        function setAgentsEnabled() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = false;
+            });
+        }
+        function setAgentsDisabledByRole(className) {
+            // Get all checkboxes
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            // Loop through checkboxes
+            checkboxes.forEach(function(checkbox) {
+                // Get the value of the checkbox
+                var checkboxValue = parseInt(checkbox.value);
+
+                // Get the Role of the agent associated with the checkbox
+                var checkboxRole = checkbox.dataset.role;
+
+                // Check if the Role matches the desired className
+                if (checkboxRole === className) {
+                    // If it does, check the checkbox
+                    checkbox.checked = true;
+                }
+            });
+            if(className == 'Sentinel'){
+                document.getElementById('SentinelButton').textContent = 'Enable Sentinels';
+                document.getElementById('SentinelButton').setAttribute('onclick', "setAgentsEnabledByRole('Sentinel')");
+            }
+            if(className == 'Controller'){
+                document.getElementById('ControllerButton').textContent = 'Enable Controllers';
+                document.getElementById('ControllerButton').setAttribute('onclick', "setAgentsEnabledByRole('Controller')");
+            }
+            if(className == 'Duelist'){
+                document.getElementById('DuelistButton').textContent = 'Enable Duelists';
+                document.getElementById('DuelistButton').setAttribute('onclick', "setAgentsEnabledByRole('Duelist')");
+            }
+            if(className == 'Initiator'){
+                document.getElementById('InitiatorButton').textContent = 'Enable Initiators';
+                document.getElementById('InitiatorButton').setAttribute('onclick', "setAgentsEnabledByRole('Initiator')");
+            }
+        }
+        function setAgentsEnabledByRole(className) {
+            // Get all checkboxes
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+            // Loop through checkboxes
+            checkboxes.forEach(function(checkbox) {
+                // Get the value of the checkbox
+                var checkboxValue = parseInt(checkbox.value);
+
+                // Get the Role of the agent associated with the checkbox
+                var checkboxRole = checkbox.dataset.role;
+
+                // Check if the Role matches the desired className
+                if (checkboxRole === className) {
+                    // If it does, check the checkbox
+                    checkbox.checked = false;
+                }
+            });
+            if(className == 'Sentinel'){
+                document.getElementById('SentinelButton').textContent = 'Disable Sentinels';
+                document.getElementById('SentinelButton').setAttribute('onclick', "setAgentsDisabledByRole('Sentinel')");
+            }
+            if(className == 'Controller'){
+                document.getElementById('ControllerButton').textContent = 'Disable Controllers';
+                document.getElementById('ControllerButton').setAttribute('onclick', "setAgentsDisabledByRole('Controller')");
+            }
+            if(className == 'Duelist'){
+                document.getElementById('DuelistButton').textContent = 'Disable Duelists';
+                document.getElementById('DuelistButton').setAttribute('onclick', "setAgentsDisabledByRole('Duelist')");
+            }
+            if(className == 'Initiator'){
+                document.getElementById('InitiatorButton').textContent = 'Disable Initiators';
+                document.getElementById('InitiatorButton').setAttribute('onclick', "setAgentsDisabledByRole('Initiator')");
+            }
+        }
+    </script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
@@ -53,29 +136,51 @@ if(isset($_GET['generate'])){
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-
-<h1 class="text-center"><?php echo $name; ?><img class="img-fluid" src="<?php echo $icon_src; ?>" alt="Character Icon" /></h1>
+<div class="container">
+<form method="get">
+<h1 class="text-center py-4"><?php echo $name; ?><img class="img-fluid" src="<?php echo $icon_src; ?>" alt="Character Icon" /></h1>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 text-center">
+            <button class="btn btn-primary" type="submit" name="generate">Generate</button>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row py-3">
+        <div class="col-3">
+        <h2>Disable agents:</h2>
+        </div>
+        <div class="col-9 text-right">
+        <button class="btn btn-primary" onclick="setAgentsDisabled()">Check all</button>
+        <button class="btn btn-primary" onclick="setAgentsEnabled()">UnCheck all</button>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
-            <h3>Disable agents:</h3>
-            <form method="get">
             <?php
                 $jsonData = file_get_contents('json/agents.json');
                 $agents = json_decode($jsonData, true)['agents'];
                 foreach ($agents as $agent) {
                     if(in_array($agent['nr'], $GLOBALS['disabledNumbers'])) {
-                    echo '<label><img class="img-fluid" src="' . $agent['icon_src'] . '" alt="Character Icon" /><input type="checkbox" name="number[]" value="' . $agent['nr'] . '" checked></label>';
+                    echo '<label><img class="img-fluid" src="' . $agent['icon_src'] . '" alt="Character Icon" /><input type="checkbox" name="number[]" value="' . $agent['nr'] . '" data-role="' . $agent['role'] .'" checked></label>';
                     }else{
-                        echo '<label><img class="img-fluid" src="' . $agent['icon_src'] . '" alt="Character Icon" /><input type="checkbox" name="number[]" value="' . $agent['nr'] . '"></label>';
+                        echo '<label><img class="img-fluid" src="' . $agent['icon_src'] . '" alt="Character Icon" /><input type="checkbox" name="number[]" value="' . $agent['nr'] . '" data-role="' . $agent['role'] .'"></label>';
                     }
                 }               
                 
                 ?>
                 <!-- Submit -->
-                <button class="btn btn-primary" type="submit" name="generate">Generate</button>
-            </form>
         </div>
+        </form>
     </div>
+    <div class="row py-5">
+        <div class="col-12">
+        <h2> Special Filters</h2>
+            <button class="btn btn-primary" id="SentinelButton" onclick="setAgentsDisabledByRole('Sentinel')">Disable Sentinels</button>
+            <button class="btn btn-primary" id="ControllerButton" onclick="setAgentsDisabledByRole('Controller')">Disable Controllers</button>
+            <button class="btn btn-primary" id="DuelistButton" onclick="setAgentsDisabledByRole('Duelist')">Disable Duelists</button>
+            <button class="btn btn-primary" id="InitiatorButton" onclick="setAgentsDisabledByRole('Initiator')">Disable Initiators</button>
+        </div>
 </div>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
