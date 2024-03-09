@@ -2,95 +2,118 @@
   "agents": [
     {
       "name": "Brimstone",
-      "nr": 1
+      "nr": 1,
+      "icon_src": "assets/agents/Brimstone_icon.png"
     },
     {
       "name": "Phoenix",
-      "nr": 2
+      "nr": 2,
+      "icon_src": "assets/agents/Phoenix_icon.png"
     },
     {
       "name": "Sage",
-      "nr": 3
+      "nr": 3,
+      "icon_src": "assets/agents/Sage_icon.png"
     },
     {
       "name": "Sova",
-      "nr": 4
+      "nr": 4,
+      "icon_src": "assets/agents/Sova_icon.png"
     },
     {
       "name": "Viper",
-      "nr": 5
+      "nr": 5,
+      "icon_src": "assets/agents/Viper_icon.png"
     },
     {
       "name": "Cypher",
-      "nr": 6
+      "nr": 6,
+      "icon_src": "assets/agents/Cypher_icon.png"
     },
     {
       "name": "Reyna",
-      "nr": 7
+      "nr": 7,
+      "icon_src": "assets/agents/Reyna_icon.png"
     },
     {
       "name": "Killjoy",
-      "nr": 8
+      "nr": 8,
+      "icon_src": "assets/agents/Killjoy_icon.png"
     },
     {
       "name": "Breach",
-      "nr": 9
+      "nr": 9,
+      "icon_src": "assets/agents/Breach_icon.png"
     },
     {
       "name": "Omen",
-      "nr": 10
+      "nr": 10,
+      "icon_src": "assets/agents/Omen_icon.png"
     },
     {
       "name": "Jett",
-      "nr": 11
+      "nr": 11,
+      "icon_src": "assets/agents/Jett_icon.png"
     },
     {
       "name": "Raze",
-      "nr": 12
+      "nr": 12,
+      "icon_src": "assets/agents/Raze_icon.png"
     },
     {
       "name": "Skye",
-      "nr": 13
+      "nr": 13,
+      "icon_src": "assets/agents/Skye_icon.png"
     },
     {
       "name": "Yoru",
-      "nr": 14
+      "nr": 14,
+      "icon_src": "assets/agents/Yoru_icon.png"
     },
     {
       "name": "Astra",
-      "nr": 15
+      "nr": 15,
+      "icon_src": "assets/agents/Astra_icon.png"
     },
     {
       "name": "KAY/O",
-      "nr": 16
+      "nr": 16,
+      "icon_src": "assets/agents/KAYO_icon.png"
     },
     {
       "name": "Chamber",
-      "nr": 17
+      "nr": 17,
+      "icon_src": "assets/agents/Chamber_icon.png"
     },
     {
       "name": "Neon",
-      "nr": 18
+      "nr": 18,
+      "icon_src": "assets/agents/Neon_icon.png"
     },
     {
       "name": "Fade",
-      "nr": 19
+      "nr": 19,
+      "icon_src": "assets/agents/Fade_icon.png"
     },
     {
       "name": "Harbor",
-      "nr": 20
+      "nr": 20,
+      "icon_src": "assets/agents/Harbor_icon.png"
     },
     {
       "name": "Gekko",
-      "nr": 21
+      "nr": 21,
+      "icon_src": "assets/agents/Gekko_icon.png"
     },
     {
       "name": "Deadlock",
-      "nr": 22
+      "nr": 22,
+      "icon_src": "assets/agents/Deadlock_icon.png"
     },
     {
       "name": "Iso",
-      "nr": 23
+      "nr": 23,
+      "icon_src": "assets/agents/Iso_icon.png"
     }
   ]
 }
