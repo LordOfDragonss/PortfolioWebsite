@@ -99,8 +99,68 @@
 			
 			break;
 	}
+
+
 ?>
 
 <?php
-include("header.php");
-include ("Index.html");
+include("../header.php");
+?>
+<?php
+include("../header.php");
+
+$pagenull = false;
+
+function formatTitle($title) {
+    // Replace underscores with spaces
+    $title = str_replace('_', ' ', $title);
+    // Capitalize the first letter of each word
+    $title = ucwords($title);
+    // Optionally, if you want the first letter to be lowercase, you can use lcfirst()
+    return $title;
+}
+
+$nextPage = $_GET['nextPage'] ?? null;
+$nextPagePath = $_SERVER['DOCUMENT_ROOT'] . "/gamepages/$nextPage.php"; // Absolute path based on document root
+
+if ($nextPage && file_exists($nextPagePath)) {
+    // If nextPage exists, redirect to the page
+    $title = formatTitle($nextPage);
+    header("Location: /gamepages/$nextPage.php");
+} else {
+    // If nextPage doesn't exist, set a flag for "under construction" message
+    if ($nextPage) {
+        $title = formatTitle($nextPage);
+    }
+    $pagenull = false;
+}
+
+?>
+
+<body id="page-top" class = "bg-dark">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="/index.php">Home</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="container">
+        <h1><?= $title ?></h1>
+</div>
+<div class="row py-3 gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4"><?= $title ?></h2>
+                    <?php if ($pagenull): ?>
+                    <p class="text-white-50">
+                        The info for this game is currently under development.
+                    </p>
+                    
+                </div>
+            </div>
+            <?php endif; ?>
+            
+</body>
