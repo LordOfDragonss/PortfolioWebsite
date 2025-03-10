@@ -137,6 +137,18 @@
       "nr": 23,
       "icon_src": "assets/agents/Iso_icon.png",
       "role": "Duelist"
+    },
+    {
+      "name": "Clove",
+      "nr": 24,
+      "icon_src": "assets/agents/Clove_icon.png",
+      "role": "Controller"
+    },
+    {
+      "name": "Vyse",
+      "nr": 25,
+      "icon_src": "assets/agents/Vyse_icon.png",
+      "role": "Sentinel"
     }
   ]
 }
