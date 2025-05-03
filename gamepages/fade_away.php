@@ -18,7 +18,7 @@ include("gamepage.php");
 
                         the first core mechanic diagram looked like this
 
-                        <img src="../assets/gamepages/fadeaway/Fade away main mechanic tree.png"></img>
+                        <img class="img-fluid mb-3 mb-lg-0" src="../assets/gamepages/fadeaway/Fade away main mechanic tree.png"></img>
 
                         With this concept a saw games like stealth games to be 
 
