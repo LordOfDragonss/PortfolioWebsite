@@ -9,9 +9,12 @@ jobs:
       uses: actions/checkout@v4
     
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
-        ftp-server: ftp.netim.hosting
-        ftp-username: ${{ secrets.ftp_username }}
-        ftp-password: ${{ secrets.ftp_password }}
-        # server-dir: miketool.eu/public_www/
+        server: ftp.netim.hosting
+        username: ${{ secrets.ftp_username }}
+        password: ${{ secrets.ftp_password }}
+        server-dir: miketool.eu/public_www/
+        exclude: "[**/.git*/**, **/node_modules/**, **/build/, .README.MD, .gitignore]"
+        protocol: ftps
+        log-level: verbose
