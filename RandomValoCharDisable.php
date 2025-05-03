@@ -1,9 +1,41 @@
 <?php
 $name = "";
 $icon_src = "";
-$disabledNumbers = $_GET['number'] ?? [];
+$disabledNumbers = $_GET['number'] ?? [];.
+
+function cycleImagesOnGenerate() {
+    // Select all agent icon images
+    var agentImages = document.querySelectorAll('.agent-icon img');
+
+    // Array of image sources you want to cycle through for each agent
+    // (You can add more sources as needed for each agent)
+    const imageSources = [
+        "path/to/first-image.jpg",
+        "path/to/second-image.jpg",
+        "path/to/third-image.jpg"
+        // Add more image paths for cycling...
+    ];
+
+    // Cycle through each agent image
+    agentImages.forEach(function(image) {
+        // Get the current image index, cycle to the next one (with wrap around)
+        let currentIndex = imageSources.indexOf(image.src);
+        let nextIndex = (currentIndex + 1) % imageSources.length; // Wrap around using modulus
+
+        // Change the image source to the next one
+        image.src = imageSources[nextIndex];
+
+        // Optional: Add a fade-out/in effect when changing the image
+        image.style.opacity = 0;
+        setTimeout(function() {
+            image.style.opacity = 1; // Fade-in after changing
+        }, 500); // Wait for the fade-out to complete before fade-in
+    });
+}
 
 function RandomChar(){
+
+    cycleImagesOnGenerate();
     global $disabledNumbers; // Declare $disabledNumbers as global
     $jsonData = file_get_contents('json/agents.json');
     $json = json_decode($jsonData, true);
@@ -134,11 +166,12 @@ if(isset($_GET['generate'])){
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/agentselectstyle.css" rel="stylesheet" />
 </head>
 <body>
 <div class="container">
 <form method="get">
-<h1 class="text-center py-4"><?php echo $name; ?><img class="img-fluid" src="<?php echo $icon_src; ?>" alt="Character Icon" /></h1>
+<h1 class="text-center py-4"><?php echo $name; ?><img class="img-fluid selected-agent" src="<?php echo $icon_src; ?>" alt="Character Icon" /></h1>
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6 text-center">
@@ -146,6 +179,7 @@ if(isset($_GET['generate'])){
         </div>
         <div class="col-3"></div>
     </div>
+    <div class="character-list">
     <div class="row py-3">
         <div class="col-3">
         <h2>Disable agents:</h2>
@@ -155,24 +189,31 @@ if(isset($_GET['generate'])){
         <button class="btn btn-primary" onclick="setAgentsEnabled()">UnCheck all</button>
         </div>
     </div>
-    <div class="row">
+    <div class="row character-list">
         <div class="col-12">
-            <?php
+        <?php
                 $jsonData = file_get_contents('json/agents.json');
                 $agents = json_decode($jsonData, true)['agents'];
                 foreach ($agents as $agent) {
-                    if(in_array($agent['nr'], $GLOBALS['disabledNumbers'])) {
-                    echo '<label><img class="img-fluid" src="' . $agent['icon_src'] . '" alt="Character Icon" /><input type="checkbox" name="number[]" value="' . $agent['nr'] . '" data-role="' . $agent['role'] .'" checked></label>';
-                    }else{
-                        echo '<label><img class="img-fluid" src="' . $agent['icon_src'] . '" alt="Character Icon" /><input type="checkbox" name="number[]" value="' . $agent['nr'] . '" data-role="' . $agent['role'] .'"></label>';
+                    if (in_array($agent['nr'], $GLOBALS['disabledNumbers'])) {
+                        echo '<input type="checkbox" id="' . $agent['nr'] . '" name="' . $agent['name'] . '" value="' . $agent['nr'] . '" data-role="' . $agent['role'] . '" checked>';
+                        echo '<label for="' . $agent['nr'] . '" class="agent-icon">
+                                <img class="img-fluid" src="' . $agent['icon_src'] . '" alt="Character Icon" />
+                            </label>';
+                    } else {
+                        echo '<input type="checkbox" id="' . $agent['nr'] . '" name="' . $agent['name'] . '" value="' . $agent['nr'] . '" data-role="' . $agent['role'] . '">';
+                        echo '<label for="' . $agent['nr'] . '" class="agent-icon">
+                                <img class="img-fluid" src="' . $agent['icon_src'] . '" alt="Character Icon" />
+                            </label>';
                     }
-                }               
-                
-                ?>
+                }
+        ?>
+
                 <!-- Submit -->
         </div>
         </form>
     </div>
+            </div>
     <div class="row py-5">
         <div class="col-12">
         <h2> Special Filters</h2>

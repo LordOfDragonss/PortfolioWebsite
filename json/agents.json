@@ -149,6 +149,18 @@
       "nr": 25,
       "icon_src": "assets/agents/Vyse_icon.png",
       "role": "Sentinel"
+    },
+    {
+      "name": "Tejo",
+      "nr": 26,
+      "icon_src": "assets/agents/Tejo_icon.png",
+      "role": "Initiator"
+    },
+    {
+      "name": "Waylay",
+      "nr": 27,
+      "icon_src": "assets/agents/Waylay_icon.png",
+      "role": "Duelist"
     }
   ]
 }
