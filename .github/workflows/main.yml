@@ -11,9 +11,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        server: ftp.netim.hosting
-        protocol: ftps
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
-        server-dir: miketool.eu/public_www/
-        log-level: verbose
+        ftp-server: ftp.netim.hosting
+        ftp-username: ${{ secrets.ftp_username }}
+        ftp-password: ${{ secrets.ftp_password }}
+        # server-dir: miketool.eu/public_www/
