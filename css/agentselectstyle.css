@@ -1,0 +1,37 @@
+.agent-icon {
+    border: 3px inset #7F777E; /* Default border for agent-icon */
+    padding: 5px; /* Optional: space around the image */
+    display: inline-block; /* Make sure it wraps the image */
+    text-align: center; /* Center the content if needed */
+}
+
+/* Optional: Add a subtle transition effect to the image swap */
+.selected-agent img {
+    transition: opacity 0.5s ease-in-out; /* Fade in and out */
+}
+
+body {
+    background-color: #212529;
+    color: white;
+}
+
+input[type="checkbox"] {
+    display: none; /* Hide checkbox but still interactable */
+}    
+
+/* Style the label when the checkbox is checked */
+input[type="checkbox"]:checked + .agent-icon {
+    border-color: #558985; /* Change border color of the label when checked */
+}
+
+/* Ensure the image doesn't inherit the border styling */
+.agent-icon img {
+    width: 100%; /* Optional: make the image responsive */
+    border: none; /* Remove any border that might be applied to the image */
+    transition: filter 0.3s ease; /* Smooth transition for filter change */
+}
+
+/* Grayscale effect on the image when the checkbox is checked */
+input[type="checkbox"]:checked + .agent-icon img {
+    filter: grayscale(100%); /* Make the image greyscale */
+}
