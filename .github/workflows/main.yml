@@ -12,7 +12,8 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ftp.netim.hosting
+        protocol: ftps
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        protocol: ftps
         server-dir: miketool.eu/public_www/
+        log-level: verbose
